@@ -49,26 +49,16 @@ st.set_page_config(
 # ============================================================
 @st.cache_resource
 def load_model():
-    import h5py
-    from tensorflow.keras.models import model_from_json
-
-    # Try normal load first
-    try:
-        return tf.keras.models.load_model(
-            "170kmodelv10_version_cam_1.keras",
-            compile=False
-        )
-    except:
-        pass
-
-    # Fallback: manually reconstruct model
-    with h5py.File("170kmodelv10_version_cam_1.keras", "r") as f:
-        model_json = f.attrs["model_config"].decode("utf-8")
-        model = model_from_json(model_json)
-        model.load_weights(f["model_weights"])
-
+    # Use TensorFlow's built‑in legacy loader
+    model = tf.keras.models.load_model(
+        "170kmodelv10_version_cam_1.keras",
+        compile=False,
+        custom_objects={"Functional": tf.keras.models.Model},
+        safe_mode=False
+    )
     model.trainable = False
     return model
+
 
 
 

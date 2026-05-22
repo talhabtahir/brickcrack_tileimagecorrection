@@ -71,7 +71,7 @@ def build_custom_model(sensitivity: int):
 
 
 # ============================================================
-        st.dataframe(corrected_df.head())
+    st.dataframe(corrected_df.head())
 	with open(csv_path, "rb") as f:
             st.download_button(
                 label="Download CSV",

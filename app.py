@@ -51,7 +51,9 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
     model = tf.keras.models.load_model(
-        "170kmodelv10_version_cam_1.keras"
+        "170kmodelv10_version_cam_1.keras",
+        compile=False,
+        safe_mode=False
     )
     model.trainable = False
     return model

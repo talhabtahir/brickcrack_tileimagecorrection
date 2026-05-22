@@ -1,7 +1,7 @@
-streamlit
-numpy==1.23.5
+streamlit==1.57.0
+numpy==1.26.4
 pandas
 pillow
 scikit-learn
 opencv-python-headless
-tensorflow
+tensorflow==2.15.0

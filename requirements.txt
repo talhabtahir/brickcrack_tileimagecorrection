@@ -4,4 +4,5 @@ pandas
 pillow
 scikit-learn
 opencv-python-headless
-tensorflow==2.15.0
+tensorflow==2.12
+keras==2.12

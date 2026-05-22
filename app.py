@@ -47,15 +47,12 @@ st.set_page_config(
 # ============================================================
 # MODEL LOADING
 # ============================================================
-
 @st.cache_resource
 def load_model():
-    from keras.src.saving import legacy_serialization
-
     model = tf.keras.models.load_model(
         "170kmodelv10_version_cam_1.keras",
         compile=False,
-        custom_objects=legacy_serialization.custom_objects
+        custom_objects={"Functional": tf.keras.models.Model}
     )
     model.trainable = False
     return model

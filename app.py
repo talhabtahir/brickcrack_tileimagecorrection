@@ -1,6 +1,3 @@
-# Full Streamlit Semi-Automatic Tile Annotation Correction App
-
-```python
 import io
 import math
 import os
